@@ -8,18 +8,45 @@
     <title>Document</title>
 </head>
 <body>
-    <button type="button" class="btn btn-secondary">Secondary</button>
-    <button type="button" class="btn btn-secondary">Secondary</button>
-    <button type="button" class="btn btn-secondary">Secondary</button>
-    <button type="button" class="btn btn-secondary">Secondary</button>
-    <button type="button" class="btn btn-secondary">Secondary</button>
-    <button type="button" class="btn btn-secondary">Secondary</button>
-    <button type="button" class="btn btn-secondary">Secondary</button>
-    <button type="button" class="btn btn-secondary">Secondary</button>
-    <button type="button" class="btn btn-secondary">Secondary</button>
-    <button type="button" class="btn btn-secondary">Secondary</button>
+
+    
+  <button data-search="Rihanna">Rihanna</button>
+  <button data-search="Issa Rae">Issa Rae</button>
+  
+  <div id ="Gifarea"></div>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
+
+      
+      
+
+      
+
+        $("button").on("click",function(){
+            var x = $(this).data("search");
+            console.log(x);
+
+            var queryURL = "http://api.giphy.com/v1/gifs/search?q="+x+"&api_key=oJwwFulSpIoCqiS9Z8lYPu1eMzv44zeU&limit=10";
+            console.log(queryURL);
+
+            $.ajax({url:queryURL,method: 'GET'})
+         .done(function(response){
+             console.log(response);
+             for(var i=0;i<response.data.length;i++){
+             $("#Gifarea").prepend("<p>Rating"+response.data[i].rating+"</p>");
+             $("#Gifarea").prepend("<img src='"+response.data[i].images.downsized.url+"'>");
+            }
+         });
+        })
+
+
+
+    //function myFunction() {
+        //var btn = document.createElement("button");
+        //btn.innerHTML = "Queries";
+        //document.body.appendChild(btn);
+   // }
 </script>
 </body>
 </html>

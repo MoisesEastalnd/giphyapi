@@ -8,10 +8,23 @@
     <title>Document</title>
 </head>
 <body>
+    <div class="conatainer">
+    <h1></h1>
+  <div id="buttons-view"></div>
 
+  <form id="hearts-forms">
+      <label for="heart-input"></label>
+      <input type="text" id="heart-input">
+      <br>
+      <input id="add-heart" type="submit" value="Add a Heart">
+  </form>
+
+  <div id="hearts-view"></div>
     
-  <button data-search="Rihanna">Rihanna</button>
-  <button data-search="Issa Rae">Issa Rae</button>
+  <button data-search="lakers">Lakers</button>
+  <button data-search="Bulls">Bulls</button>
+  <button data-search="Rockets">Issa Rae</button>
+  <button data-search="warriors">Issa Rae</button>
   
   <div id ="Gifarea"></div>
     
@@ -19,34 +32,19 @@
     <script type="text/javascript">
 
       
-      
-
-      
-
-        $("button").on("click",function(){
-            var x = $(this).data("search");
-            console.log(x);
-
-            var queryURL = "http://api.giphy.com/v1/gifs/search?q="+x+"&api_key=oJwwFulSpIoCqiS9Z8lYPu1eMzv44zeU&limit=10";
-            console.log(queryURL);
-
-            $.ajax({url:queryURL,method: 'GET'})
-         .done(function(response){
-             console.log(response);
-             for(var i=0;i<response.data.length;i++){
-             $("#Gifarea").prepend("<p>Rating"+response.data[i].rating+"</p>");
-             $("#Gifarea").prepend("<img src='"+response.data[i].images.downsized.url+"'>");
-            }
-         });
-        })
+                
+                
+                 
+                
+              
+              
+               
+       
+               
+          
 
 
-
-    //function myFunction() {
-        //var btn = document.createElement("button");
-        //btn.innerHTML = "Queries";
-        //document.body.appendChild(btn);
-   // }
 </script>
+</div>
 </body>
 </html>
